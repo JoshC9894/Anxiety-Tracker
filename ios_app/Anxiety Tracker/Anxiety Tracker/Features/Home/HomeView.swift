@@ -13,12 +13,16 @@ struct HomeView: View {
     
     
     var body: some View {
-        VStack {
-            Text(state.value)
-            Text("SwiftUI")
-            Button(action: state.action, label: {
-                Text("Action!")
-            })
+        NavigationView {
+            VStack {
+                Text(state.value)
+                Text("SwiftUI")
+                Button(action: state.action, label: {
+                    Text("Action!")
+                })
+            }
+        }.onAppear {
+            self.state.load()
         }
     }
 }

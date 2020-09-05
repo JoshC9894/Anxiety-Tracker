@@ -6,5 +6,11 @@
 //  Copyright © 2020 Joshua Colley. All rights reserved.
 //
 
-protocol HomeServiceProtocol {}
-class HomeService: HomeServiceProtocol {}
+protocol HomeServiceProtocol {
+    func setup()
+}
+class HomeService: HomeServiceProtocol {
+    func setup() {
+        
+    }
+}

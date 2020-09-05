@@ -10,8 +10,12 @@ import SwiftUI
 
 class HomeState: ObservableObject {
     @Published private(set) var value = "Test"
+    private let service: HomeServiceProtocol = HomeService()
     
-    func load() {}
+    func load() {
+        service.setup()
+    }
+    
     func action() {
         self.value = "Success"
     }
