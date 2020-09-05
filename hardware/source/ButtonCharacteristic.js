@@ -14,8 +14,8 @@ getValue = () => {
     return buffer;
 }
 
-var RedCharacteristic = function () {
-    RedCharacteristic.super_.call(this, {
+var ButtonCharacteristic = function () {
+    ButtonCharacteristic.super_.call(this, {
         uuid: Characteristic_GUID,
         properties: ['read', 'write', 'notify'],
         value: null
@@ -24,19 +24,19 @@ var RedCharacteristic = function () {
     this._updateValueCallback = null;
 };
 
-util.inherits(RedCharacteristic, BlenoCharacteristic);
+util.inherits(ButtonCharacteristic, BlenoCharacteristic);
 
-RedCharacteristic.prototype.onReadRequest = function (offset, callback) {
-    console.log('RedCharacteristic - onReadRequest: value = ' + this._value.toString('hex'));
+ButtonCharacteristic.prototype.onReadRequest = function (offset, callback) {
+    console.log('ButtonCharacteristic - onReadRequest: value = ' + this._value.toString('hex'));
     callback(this.RESULT_SUCCESS, this._value);
 }
 
-RedCharacteristic.prototype.onWriteRequest = function (data, offset, withoutResponse, callback) {
+ButtonCharacteristic.prototype.onWriteRequest = function (data, offset, withoutResponse, callback) {
     this._value = data;
-    console.log('RedCharacteristic - onWriteRequest: value = ' + this._value.toString('hex'));
+    console.log('ButtonCharacteristic - onWriteRequest: value = ' + this._value.toString('hex'));
 
     if (this._updateValueCallback) {
-        console.log('RedCharacteristic - onWriteRequest: notifying');
+        console.log('ButtonCharacteristic - onWriteRequest: notifying');
 
         this._updateValueCallback(this._value);
     }
@@ -44,14 +44,14 @@ RedCharacteristic.prototype.onWriteRequest = function (data, offset, withoutResp
     callback(this.RESULT_SUCCESS);
 }
 
-RedCharacteristic.prototype.onSubscribe = function (maxValueSize, updateValueCallback) {
-    console.log('RedCharacteristic - onSubscribe');
+ButtonCharacteristic.prototype.onSubscribe = function (maxValueSize, updateValueCallback) {
+    console.log('ButtonCharacteristic - onSubscribe');
     this._updateValueCallback = updateValueCallback;
 }
 
-RedCharacteristic.prototype.onUnsubscribe = function () {
-    console.log('RedCharacteristic - onUnsubscribe');
+ButtonCharacteristic.prototype.onUnsubscribe = function () {
+    console.log('ButtonCharacteristic - onUnsubscribe');
     this._updateValueCallback = null;
 }
 
-module.exports = RedCharacteristic;
+module.exports = ButtonCharacteristic;
