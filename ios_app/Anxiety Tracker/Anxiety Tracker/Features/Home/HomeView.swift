@@ -15,14 +15,14 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text(state.value)
-                Text("SwiftUI")
-                Button(action: state.action, label: {
-                    Text("Action!")
-                })
+                Text(state.connectionStatus)
+//                Text("SwiftUI")
+//                Button(action: state.action, label: {
+//                    Text("Action!")
+//                })
             }
         }.onAppear {
-            self.state.load()
+            self.state.startScanning()
         }
     }
 }

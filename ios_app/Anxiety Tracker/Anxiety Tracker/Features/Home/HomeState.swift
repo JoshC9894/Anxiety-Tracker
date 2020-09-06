@@ -7,28 +7,38 @@
 //
 
 import SwiftUI
+import CoreBluetooth
 
 class HomeState: ObservableObject {
-    @Published private(set) var value = "Test"
-    private let service: HomeServiceProtocol = HomeService()
+    @Published private(set) var connectionStatus = "Not connected"
+    lazy var bluetoothService: BluetoothServiceProtocol = { [weak self] in
+        let service = BluetoothService(delegate: self)
+        return service
+    }()
     
-    func load() {
-        service.setup()
+    func startScanning() {
+        self.bluetoothService.scanForDevice()
     }
     
-    func action() {
-        self.value = "Success"
+    func disconnect() {
+        self.bluetoothService.disconnectConnectedPeripheral()
     }
 }
 
-//class ViewModel: ObservableObject {
-//    @Published private(set) var countries: [Country] = []
-//
-//    private let service: WebService
-//
-//    func loadCountries() {
-//        service.getCountries { [weak self] result in
-//            self?.countries = result.value ?? []
-//        }
-//    }
-//}
+extension HomeState: BluetoothServiceDelegate {
+    func didConnect(to peripheral: CBPeripheral) {
+        connectionStatus = "Connected"
+//        let name = peripheral.name ?? ""
+//        self.delegate?.didConnectToDevice(text: "Connected: \(name)")
+    }
+    
+    func didDisconnect() {
+        connectionStatus = "Not connected"
+//        self.delegate?.didDisconnectFromDevice(text: "Not connected")
+    }
+    
+    func didDiscoverCharacteristics(_ characteristics: [CBCharacteristic]) {
+//        self.dataSource.data = characteristics
+//        self.delegate?.didUpdateTableData()
+    }
+}

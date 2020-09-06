@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		42694CE42504217B002F5038 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42694CE32504217B002F5038 /* StorageService.swift */; };
 		42694CE6250421A3002F5038 /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42694CE5250421A3002F5038 /* BluetoothService.swift */; };
+		C43DB21725042724007F5B75 /* BluetoothService+CBCenteralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43DB21625042724007F5B75 /* BluetoothService+CBCenteralManagerDelegate.swift */; };
+		C43DB21925042753007F5B75 /* BluetoothService+CBPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43DB21825042753007F5B75 /* BluetoothService+CBPeripheralDelegate.swift */; };
 		C4456DCB2503C525001F2198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4456DCA2503C525001F2198 /* AppDelegate.swift */; };
 		C4456DCD2503C525001F2198 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4456DCC2503C525001F2198 /* SceneDelegate.swift */; };
 		C4456DD02503C525001F2198 /* Anxiety_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4456DCE2503C525001F2198 /* Anxiety_Tracker.xcdatamodeld */; };
@@ -16,13 +18,14 @@
 		C4456DD72503C529001F2198 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4456DD62503C529001F2198 /* Preview Assets.xcassets */; };
 		C4456DDA2503C529001F2198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4456DD82503C529001F2198 /* LaunchScreen.storyboard */; };
 		C47F06BE2503CF0C009F0C4F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F06BD2503CF0C009F0C4F /* HomeView.swift */; };
-		C47F06C22503D1B4009F0C4F /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F06C12503D1B4009F0C4F /* HomeService.swift */; };
 		C47F06C42503D286009F0C4F /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F06C32503D285009F0C4F /* HomeState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		42694CE32504217B002F5038 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		42694CE5250421A3002F5038 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		C43DB21625042724007F5B75 /* BluetoothService+CBCenteralManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothService+CBCenteralManagerDelegate.swift"; sourceTree = "<group>"; };
+		C43DB21825042753007F5B75 /* BluetoothService+CBPeripheralDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothService+CBPeripheralDelegate.swift"; sourceTree = "<group>"; };
 		C4456DC72503C525001F2198 /* Anxiety Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anxiety Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4456DCA2503C525001F2198 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4456DCC2503C525001F2198 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +35,6 @@
 		C4456DD92503C529001F2198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4456DDB2503C529001F2198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C47F06BD2503CF0C009F0C4F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		C47F06C12503D1B4009F0C4F /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		C47F06C32503D285009F0C4F /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,10 +52,20 @@
 		42694CE22504216F002F5038 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				42694CE5250421A3002F5038 /* BluetoothService.swift */,
+				C43DB21A25042765007F5B75 /* BluetoothService */,
 				42694CE32504217B002F5038 /* StorageService.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		C43DB21A25042765007F5B75 /* BluetoothService */ = {
+			isa = PBXGroup;
+			children = (
+				42694CE5250421A3002F5038 /* BluetoothService.swift */,
+				C43DB21625042724007F5B75 /* BluetoothService+CBCenteralManagerDelegate.swift */,
+				C43DB21825042753007F5B75 /* BluetoothService+CBPeripheralDelegate.swift */,
+			);
+			path = BluetoothService;
 			sourceTree = "<group>";
 		};
 		C4456DBE2503C525001F2198 = {
@@ -108,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				C47F06BD2503CF0C009F0C4F /* HomeView.swift */,
-				C47F06C12503D1B4009F0C4F /* HomeService.swift */,
 				C47F06C32503D285009F0C4F /* HomeState.swift */,
 			);
 			path = Home;
@@ -187,11 +198,12 @@
 			files = (
 				42694CE6250421A3002F5038 /* BluetoothService.swift in Sources */,
 				C47F06C42503D286009F0C4F /* HomeState.swift in Sources */,
-				C47F06C22503D1B4009F0C4F /* HomeService.swift in Sources */,
 				C4456DCB2503C525001F2198 /* AppDelegate.swift in Sources */,
 				C4456DCD2503C525001F2198 /* SceneDelegate.swift in Sources */,
 				C47F06BE2503CF0C009F0C4F /* HomeView.swift in Sources */,
+				C43DB21925042753007F5B75 /* BluetoothService+CBPeripheralDelegate.swift in Sources */,
 				C4456DD02503C525001F2198 /* Anxiety_Tracker.xcdatamodeld in Sources */,
+				C43DB21725042724007F5B75 /* BluetoothService+CBCenteralManagerDelegate.swift in Sources */,
 				42694CE42504217B002F5038 /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
